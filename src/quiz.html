@@ -1,1 +1,129 @@
-...
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест | Еко Приключения</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+            <span class="flag">🇬🇧</span>
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="earth-icon">🌍</span>
+                <h1 data-bg="Еко Приключения" data-en="Eco Adventures">Еко Приключения</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="learn.html" data-bg="Научи" data-en="Learn">Научи</a></li>
+                    <li><a href="games.html" data-bg="Игри" data-en="Games">Игри</a></li>
+                    <li><a href="quiz.html" class="active" data-bg="Тест" data-en="Quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="hero-content" style="display: flex; align-items: center; gap: 2rem;">
+                <div class="hero-image" style="flex-shrink: 0;">
+                    <img src="../img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
+                </div>
+                <h2 class="section-title" data-bg="Добре дошли в играта за въглеродния отпечатък!" data-en="Welcome to the Carbon Footprint Game!">
+                    Добре дошли в играта за въглеродния отпечатък!
+                </h2>
+            </div>
+            
+            <!-- Introduction Screen -->
+            <div id="quizIntro" class="quiz-intro">
+                <p class="intro-text" data-bg="Научи как да помогнеш на планетата и да намалиш въглеродния си отпечатък!" 
+                   data-en="Learn how to help the planet and reduce your carbon footprint!">
+                    Научи как да помогнеш на планетата и да намалиш въглеродния си отпечатък!
+                </p>
+                        <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                   data-en="The carbon footprint is a measure of the amount of carbon dioxide released into the atmosphere as a result of our activities. Through this game you will learn how our daily choices affect the environment.">
+                    Въглеродният отпечатък е мярка за количеството въглероден диоксид, което се отделя в атмосферата в резултат на нашите дейности. Чрез тази игра ще научиш как ежедневните ни избори влияят на околната среда.
+                </p>
+                
+                <div class="levels-grid">
+                    <div class="level-card level-1" onclick="startQuiz('level1')">
+                        <div class="level-icon">🌱</div>
+                        <h3 class="level-title" data-bg="Ниво 1" data-en="Level 1">Ниво 1</h3>
+                        <p class="level-description" data-bg="Основни въпроси за въглеродния отпечатък" data-en="Basic questions about carbon footprint">
+                            Основни въпроси за въглеродния отпечатък
+                        </p>
+                    </div>
+                    
+                    <div class="level-card level-2" onclick="startQuiz('level2')">
+                        <div class="level-icon">🌳</div>
+                        <h3 class="level-title" data-bg="Ниво 2" data-en="Level 2">Ниво 2</h3>
+                        <p class="level-description" data-bg="Ситуационни въпроси и избор на действия!" data-en="Situational questions and choice of actions!">
+                            Ситуационни въпроси и избор на действия!
+                        </p>
+                    </div>
+                    
+                    <div class="level-card level-3" onclick="startQuiz('level3')">
+                        <div class="level-icon">💡</div>
+                        <h3 class="level-title" data-bg="Ниво 3" data-en="Level 3">Ниво 3</h3>
+                        <p class="level-description" data-bg="Практически задачи и изчисления" data-en="Practical tasks and calculations">
+                            Практически задачи и изчисления
+                        </p>
+                    </div>
+                    
+                    <div class="level-card level-4">
+                        <div class="level-icon">🏆</div>
+                        <h3 class="level-title" data-bg="Награди" data-en="Rewards">Награди</h3>
+                        <p class="level-description" data-bg="Спечели постижения и стани еко шампион!" data-en="Win achievements and become an eco champion!">
+                            Спечели постижения и стани еко шампион!
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="quiz-question" data-bg="Готов ли си да започнеш своето приключение и да станеш защитник на планетата?" 
+                   data-en="Are you ready to start your adventure and become a protector of the planet?">
+                    Готов ли си да започнеш своето приключение и да станеш защитник на планетата?
+                </p>
+                
+                <button id="startQuiz" class="game-btn start-btn" onclick="startQuiz('level1')">
+                    <span data-bg="Започни играта" data-en="Start Game">Започни играта</span>
+                </button>
+            </div>
+            
+            <!-- Quiz Content (will be shown when game starts) -->
+            <div id="quizContent" class="quiz-content" style="display: none;">
+                <!-- Quiz questions will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+           
+            <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
+                © 2025 Еко Приключения - Заедно за по-чиста Земя!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/games.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
