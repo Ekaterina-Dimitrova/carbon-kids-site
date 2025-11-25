@@ -350,11 +350,6 @@ const quizData = {
                         name: "Гледане на стрийминг (3+ часа)",
                         impacts: [1.5],
                         correct: 0
-                    },
-                    { 
-                        name: "Използване на пухалка за коса рядко/никога",
-                        impacts: [0],
-                        correct: 0
                     }
                 ],
                 successMessage: "Отлична работа! Избраните от теб дейности имат низък въглероден отпечатък. Малките ежедневни решения могат да направят голяма разлика за планетата! Транспортът с велосипед, вегетарианската храна и минималната употреба на енергия са ключови за намаляване на въглеродния отпечатък.",
@@ -664,11 +659,7 @@ const quizData = {
                         impacts: [1.5],
                         correct: 0
                     },
-                    { 
-                        name: "Using hair dryer rarely/never",
-                        impacts: [0],
-                        correct: 0
-                    }
+
                 ],
                 successMessage: "Great work! Your chosen activities have a low carbon footprint. Small daily choices can make a big difference for the planet! Cycling, vegetarian food, and minimal energy use are key to reducing carbon footprint.",
                 failureMessage: "Try again! Choose more eco-friendly options for your daily activities. Recommendation: Avoid cars, fast food, and long showers. Choose cycling, home-cooked food, and short showers for a lower carbon footprint."
