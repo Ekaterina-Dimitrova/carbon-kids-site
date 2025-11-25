@@ -242,9 +242,9 @@ const quizData = {
             },
             {
                 question: "Изчисляване на въглеродния отпечатък на семейно пътуване",
-                scenario: "Твоето семейство планира ваканция. Използвай плъзгачите, за да настроиш различните аспекти на пътуването и да изчислиш общия въглероден отпечатък. Цел: Поддържай въглеродния отпечатък под 200 кг CO₂",
+                scenario: "Твоето семейство планира ваканция. Използвай плъзгачите, за да настроиш различните аспекти на пътуването и да изчислиш общия въглероден отпечатък. Цел: Поддържай въглеродния отпечатък под 100 кг CO₂",
                 type: "interactive",
-                goal: 200,
+                goal: 100,
                 sliders: [
                     { 
                         name: "Разстояние (км)",
@@ -253,7 +253,11 @@ const quizData = {
                         step: 10,
                         default: 100,
                         unit: "",
-                        formula: (val) => val * 0.63
+                        formula: (val, transportType) => {
+                            // Емисии на км според вида транспорт: велосипед=0, влак=0.04, автобус=0.10, кола=0.25, самолет=0.30
+                            const emissions = [0, 0.04, 0.10, 0.25, 0.30];
+                            return val * emissions[transportType - 1];
+                        }
                     },
                     { 
                         name: "Брой хора",
@@ -262,7 +266,8 @@ const quizData = {
                         step: 1,
                         default: 4,
                         unit: "",
-                        formula: (val) => val * 20
+                        display: "CO₂ на човек",
+                        formula: null
                     },
                     { 
                         name: "Брой дни",
@@ -271,7 +276,7 @@ const quizData = {
                         step: 1,
                         default: 7,
                         unit: "",
-                        formula: (val) => val * 30
+                        formula: (val) => val * 6 // 5кг хотел + 1кг храна на ден
                     },
                     { 
                         name: "Вид транспорт (1=велосипед, 2=влак, 3=автобус, 4=кола, 5=самолет)",
@@ -281,14 +286,11 @@ const quizData = {
                         default: 4,
                         unit: "",
                         options: ["Велосипед", "Влак", "Автобус", "Кола", "Самолет"],
-                        formula: (val) => {
-                            const multipliers = [0, 0.5, 1, 2, 3.5];
-                            return multipliers[val - 1] * 50;
-                        }
+                        formula: null
                     }
                 ],
-                successMessage: "Отлична работа! Въглеродният отпечатък на пътуването зависи от разстоянието, вида транспорт, брой хора и продължителността на престоя. Самолетите имат най-висок въглероден отпечатък на човек, докато влаковете и автобусите са по-екологични!",
-                failureMessage: "Опитай отново! Намали разстоянието, избери по-екологичен транспорт или намали продължителността на пътуването, за да постигнеш цел под 200 кг CO₂"
+                successMessage: "Отлична работа! Изчисли реалистичен въглероден отпечатък! Помни: видът транспорт има най-голямо значение. Велосипедите и влаковете са много по-добри от колите и самолетите. Продължителността на престоя (хотел + храна) също е важна за по-дълги пътувания!",
+                failureMessage: "Опитай отново! Избери по-екологичен транспорт, намали разстоянието или планирай по-кратко пътуване. Летенето и карането на далечни разстояния създават най-много емисии!"
             },
             {
                 question: "Планиране на екологичен ден",
@@ -550,9 +552,9 @@ const quizData = {
             },
             {
                 question: "Calculating the carbon footprint of a family trip",
-                scenario: "Your family is planning a vacation. Use the sliders to adjust different aspects of the trip and calculate the total carbon footprint. Goal: Keep carbon footprint below 200 kg CO₂",
+                scenario: "Your family is planning a vacation. Use the sliders to adjust different aspects of the trip and calculate the total carbon footprint. Goal: Keep carbon footprint below 100 kg CO₂",
                 type: "interactive",
-                goal: 200,
+                goal: 100,
                 sliders: [
                     { 
                         name: "Distance (km)",
@@ -561,7 +563,11 @@ const quizData = {
                         step: 10,
                         default: 100,
                         unit: "",
-                        formula: (val) => val * 0.63
+                        formula: (val, transportType) => {
+                            // Transport emissions per km: bike=0, train=0.04, bus=0.10, car=0.25, plane=0.30
+                            const emissions = [0, 0.04, 0.10, 0.25, 0.30];
+                            return val * emissions[transportType - 1];
+                        }
                     },
                     { 
                         name: "Number of people",
@@ -570,7 +576,8 @@ const quizData = {
                         step: 1,
                         default: 4,
                         unit: "",
-                        formula: (val) => val * 20
+                        display: "CO₂ per person",
+                        formula: null
                     },
                     { 
                         name: "Number of days",
@@ -579,7 +586,7 @@ const quizData = {
                         step: 1,
                         default: 7,
                         unit: "",
-                        formula: (val) => val * 30
+                        formula: (val) => val * 6 // 5kg hotel + 1kg food per day
                     },
                     { 
                         name: "Type of transport (1=bike, 2=train, 3=bus, 4=car, 5=plane)",
@@ -589,14 +596,11 @@ const quizData = {
                         default: 4,
                         unit: "",
                         options: ["Bicycle", "Train", "Bus", "Car", "Plane"],
-                        formula: (val) => {
-                            const multipliers = [0, 0.5, 1, 2, 3.5];
-                            return multipliers[val - 1] * 50;
-                        }
+                        formula: null
                     }
                 ],
-                successMessage: "Great work! The carbon footprint of a trip depends on distance, type of transport, number of people, and duration of stay. Planes have the highest carbon footprint per person, while trains and buses are more eco-friendly!",
-                failureMessage: "Try again! Reduce the distance, choose more eco-friendly transport, or shorten the trip duration to achieve a goal below 200 kg CO₂"
+                successMessage: "Great work! You calculated a realistic carbon footprint! Remember: The type of transport has the biggest impact. Bicycles and trains are much better than cars and planes. Duration of stay (hotel + food) also matters significantly for longer trips!",
+                failureMessage: "Try again! Choose a more eco-friendly transport option, reduce the distance, or plan a shorter trip. Flying and driving long distances create the most carbon emissions!"
             },
             {
                 question: "Planning an eco-friendly day",
@@ -999,21 +1003,79 @@ function updateInteractiveCalculator() {
     const hasRangeSliders = question.sliders.some(slider => slider.min !== undefined);
     
     if (hasRangeSliders) {
-        // Calculate from sliders
-        question.sliders.forEach((slider, idx) => {
-            const sliderElement = document.getElementById(`slider_${idx}`);
-            if (sliderElement && slider.formula) {
-                const value = parseFloat(sliderElement.value);
-                const impact = slider.formula(value);
-                totalFootprint += impact;
-                
-                // Update individual impact display
-                const impactDisplay = document.getElementById(`slider_impact_${idx}`);
-                if (impactDisplay) {
-                    impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Общ' : 'Total'} ${currentLanguage === 'bg' ? 'въглероден отпечатък:' : 'carbon footprint:'} <span style="font-weight: 700;">${impact.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
+        // For the trip calculator (Level 3, Question 2)
+        if (question.question && question.question.includes('family trip')) {
+            let distance = 0;
+            let transportType = 4; // default car
+            let days = 0;
+            let numPeople = 1;
+            
+            // Get slider values
+            question.sliders.forEach((slider, idx) => {
+                const sliderElement = document.getElementById(`slider_${idx}`);
+                if (sliderElement) {
+                    const value = parseFloat(sliderElement.value);
+                    if (slider.name.includes('Distance')) {
+                        distance = value;
+                    } else if (slider.name.includes('people')) {
+                        numPeople = value;
+                    } else if (slider.name.includes('days')) {
+                        days = value;
+                    } else if (slider.name.includes('transport')) {
+                        transportType = value;
+                    }
                 }
-            }
-        });
+            });
+            
+            // Calculate transport emissions: distance * emission_per_km
+            const emissionsPerKm = [0, 0.04, 0.10, 0.25, 0.30];
+            const transportCO2 = distance * emissionsPerKm[transportType - 1];
+            
+            // Calculate stay emissions: days * 6 (5kg hotel + 1kg food)
+            const stayCO2 = days * 6;
+            
+            // Total
+            totalFootprint = transportCO2 + stayCO2;
+            
+            // Calculate CO2 per person
+            const co2PerPerson = numPeople > 0 ? totalFootprint / numPeople : totalFootprint;
+            
+            // Update displays
+            question.sliders.forEach((slider, idx) => {
+                const sliderElement = document.getElementById(`slider_${idx}`);
+                const impactDisplay = document.getElementById(`slider_impact_${idx}`);
+                
+                if (sliderElement && impactDisplay) {
+                    const value = parseFloat(sliderElement.value);
+                    
+                    if (slider.name.includes('Distance')) {
+                        const co2 = value * emissionsPerKm[transportType - 1];
+                        impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Общ' : 'Transport'} ${currentLanguage === 'bg' ? 'транспортен отпечатък:' : 'emissions:'} <span style="font-weight: 700;">${co2.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
+                    } else if (slider.name.includes('people')) {
+                        impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'На човек:' : 'Per person:'} <span style="font-weight: 700;">${co2PerPerson.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
+                    } else if (slider.name.includes('days')) {
+                        const co2 = value * 6;
+                        impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Престой (хотел + храна):' : 'Stay (hotel + food):'} <span style="font-weight: 700;">${co2.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
+                    }
+                }
+            });
+        } else {
+            // For other interactive questions with formulas
+            question.sliders.forEach((slider, idx) => {
+                const sliderElement = document.getElementById(`slider_${idx}`);
+                if (sliderElement && slider.formula) {
+                    const value = parseFloat(sliderElement.value);
+                    const impact = slider.formula(value);
+                    totalFootprint += impact;
+                    
+                    // Update individual impact display
+                    const impactDisplay = document.getElementById(`slider_impact_${idx}`);
+                    if (impactDisplay) {
+                        impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Общ' : 'Total'} ${currentLanguage === 'bg' ? 'въглероден отпечатък:' : 'carbon footprint:'} <span style="font-weight: 700;">${impact.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
+                    }
+                }
+            });
+        }
     } else {
         // Calculate from checkboxes
         question.sliders.forEach((slider, idx) => {
