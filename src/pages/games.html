@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игри | Еко Приключения</title>
-    <link rel="stylesheet" href="/styles/variables.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/components.css">
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
         <div class="container">
             <div class="hero-content" style="display: flex; align-items: center; gap: 2rem;">
                 <div class="hero-image" style="flex-shrink: 0;">
-                    <img src="/img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
+                    <img src="../img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
                 </div>
                 <h2 class="section-title" data-bg="Избери игра! 🎮" data-en="Choose a Game! 🎮">
                     Избери игра! 🎮
@@ -57,7 +57,7 @@
                         Използвай мишката, за да хванеш падащите символи
                     </p>
                 </div>
-                
+                            <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
                 <div class="quick-link-card" onclick="showGame('memory')">
                     <div class="link-icon">🧠</div>
                     <h3 data-bg="Мемори игра" data-en="Memory Game">Мемори игра</h3>
@@ -284,7 +284,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
-            <img src="/img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
+            <img src="../img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
             
             <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
                 © 2025 Еко Приключения - Заедно за по-чиста Земя!
@@ -292,9 +292,9 @@
         </div>
     </footer>
 
-    <script src="/js/utils.js"></script>
-    <script src="/js/games.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/games.js"></script>
+    <script src="../js/main.js"></script>
     <script>
         function showGame(gameType) {
             document.getElementById('games-menu').style.display = 'none';
