@@ -1,0 +1,42 @@
+[
+    {
+        "activity": "Plant a tree",
+        "description": "Help the environment by planting a tree in your backyard or a local park.",
+        "ageGroup": "5-14",
+        "duration": "1 hour",
+        "materials": ["Tree sapling", "Shovel", "Water"],
+        "impact": "Trees absorb carbon dioxide and provide oxygen."
+    },
+    {
+        "activity": "Create a recycling station",
+        "description": "Set up a recycling station at home to sort out recyclables like paper, plastic, and glass.",
+        "ageGroup": "5-14",
+        "duration": "30 minutes",
+        "materials": ["Bins for sorting", "Labels for bins"],
+        "impact": "Recycling reduces waste and saves energy."
+    },
+    {
+        "activity": "Walk or bike to school",
+        "description": "Instead of driving, walk or ride your bike to school to reduce carbon emissions.",
+        "ageGroup": "5-14",
+        "duration": "Varies",
+        "materials": ["Bicycle or walking shoes"],
+        "impact": "Less driving means less pollution."
+    },
+    {
+        "activity": "Make a bird feeder",
+        "description": "Create a bird feeder using recycled materials to help local wildlife.",
+        "ageGroup": "5-14",
+        "duration": "1 hour",
+        "materials": ["Plastic bottle", "String", "Birdseed"],
+        "impact": "Supports local birds and promotes biodiversity."
+    },
+    {
+        "activity": "Organize a clean-up day",
+        "description": "Gather friends and family to clean up a local park or beach.",
+        "ageGroup": "5-14",
+        "duration": "2 hours",
+        "materials": ["Trash bags", "Gloves"],
+        "impact": "Keeps the environment clean and safe for everyone."
+    }
+]

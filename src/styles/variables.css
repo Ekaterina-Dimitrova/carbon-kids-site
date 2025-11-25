@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #4CAF50; /* Green for eco-friendliness */
+    --secondary-color: #FFEB3B; /* Yellow for fun and energy */
+    --accent-color: #FF5722; /* Orange for vibrant highlights */
+    --background-color: #E0F7FA; /* Light blue for a fresh feel */
+    --text-color: #212121; /* Dark gray for readability */
+    --font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for children */
+    --border-radius: 8px; /* Rounded corners for a friendly look */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}

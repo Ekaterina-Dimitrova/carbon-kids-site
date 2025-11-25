@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Научи | Еко Приключения</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+            <span class="flag">🇬🇧</span>
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="earth-icon">🌍</span>
+                <h1 data-bg="Еко Приключения" data-en="Eco Adventures">Еко Приключения</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="learn.html" class="active" data-bg="Научи" data-en="Learn">Научи</a></li>
+                    <li><a href="games.html" data-bg="Игри" data-en="Games">Игри</a></li>
+                    <li><a href="quiz.html" data-bg="Тест" data-en="Quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Learn Section -->
+    <section id="learn" class="learn-section">
+        <div class="container">
+            <div class="hero-content" style="display: flex; align-items: center; gap: 2rem;">
+                <div class="hero-image" style="flex-shrink: 0;">
+                    <img src="../img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
+                </div>
+                <h2 class="section-title" data-bg="Какво е въглероден отпечатък? 🤔" data-en="What is a Carbon Footprint? 🤔">
+                    Какво е въглероден отпечатък? 🤔
+                </h2>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-icon">👣</div>
+                    <h3 data-bg="Отпечатък на въглерода" data-en="Carbon Footprint">Отпечатък на въглерода</h3>
+                    <p data-bg="Това е количеството вредни газове, които правим, когато пътуваме, използваме електричество или купуваме неща."
+                       data-en="It's the amount of harmful gases we create when we travel, use electricity, or buy things.">
+                        Това е количеството вредни газове, които правим, когато пътуваме, използваме електричество или купуваме неща.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">🌡️</div>
+                    <h3 data-bg="Глобално затопляне" data-en="Global Warming">Глобално затопляне</h3>
+                    <p data-bg="Когато пускаме много въглероден газ, планетата ни се загрява и това е лошо за природата."
+                       data-en="When we release too much carbon gas, our planet gets warmer and this is bad for nature.">
+                        Когато пускаме много въглероден газ, планетата ни се загрява и това е лошо за природата.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">💡</div>
+                    <h3 data-bg="Можем да помогнем!" data-en="We Can Help!">Можем да помогнем!</h3>
+                    <p data-bg="С малки промени всеки ден можем да направим планетата по-здрава и по-щастлива!"
+                       data-en="With small changes every day, we can make the planet healthier and happier!">
+                        С малки промени всеки ден можем да направим планетата по-здрава и по-щастлива!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section-learn">
+        <div class="container">
+            <h2 class="section-title" data-bg="Гледай и научи повече! 🎥" data-en="Watch and Learn More! 🎥">
+                Гледай и научи повече! 🎥
+            </h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/hcj_EK82yNY" title="Carbon Footprint Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actions Section -->
+    <section class="actions-section">
+        <div class="container">
+            <h2 class="section-title" data-bg="Как мога да помогна? 💪" data-en="How Can I Help? 💪">
+                Как мога да помогна? 💪
+            </h2>
+            <p class="section-instruction" data-bg="💡 Натисни върху картата, за да я обърнеш и да научиш повече!" data-en="💡 Click on the card to flip it and learn more!">
+                💡 Натисни върху картата, за да я обърнеш и да научиш повече!
+            </p>
+            <div class="actions-grid">
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">🚲</div>
+                            <h3 data-bg="Ходи пеша или с колело" data-en="Walk or Bike">Ходи пеша или с колело</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Вместо да те карат с кола, избери велосипед или ходи пеша до училище!"
+                               data-en="Instead of riding in a car, choose a bike or walk to school!">
+                                Вместо да те карат с кола, избери велосипед или ходи пеша до училище!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">💡</div>
+                            <h3 data-bg="Изгасвай светлините" data-en="Turn Off Lights">Изгасвай светлините</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Когато излезеш от стаята, загаси светлината. Така пестиш енергия!"
+                               data-en="When you leave a room, turn off the light. This saves energy!">
+                                Когато излезеш от стаята, загаси светлината. Така пестиш енергия!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">♻️</div>
+                            <h3 data-bg="Рециклирай" data-en="Recycle">Рециклирай</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Сортирай боклука - хартия, пластмаса и стъкло в различни кофи!"
+                               data-en="Sort your trash - paper, plastic, and glass in different bins!">
+                                Сортирай боклука - хартия, пластмаса и стъкло в различни кофи!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">🌳</div>
+                            <h3 data-bg="Засади дърво" data-en="Plant Trees">Засади дърво</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Дърветата почистват въздуха! Помогни да засадим повече дървета."
+                               data-en="Trees clean the air! Help plant more trees.">
+                                Дърветата почистват въздуха! Помогни да засадим повече дървета.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">💧</div>
+                            <h3 data-bg="Пести вода" data-en="Save Water">Пести вода</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Затваряй чешмата, докато миеш зъбите си. Всяка капка е важна!"
+                               data-en="Turn off the tap while brushing your teeth. Every drop counts!">
+                                Затваряй чешмата, докато миеш зъбите си. Всяка капка е важна!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="action-icon">🍎</div>
+                            <h3 data-bg="Яж местни плодове" data-en="Eat Local Food">Яж местни плодове</h3>
+                        </div>
+                        <div class="card-back">
+                            <p data-bg="Храната от близките ферми не пътува дълго и е по-добра за планетата!"
+                               data-en="Food from nearby farms doesn't travel far and is better for the planet!">
+                                Храната от близките ферми не пътува дълго и е по-добра за планетата!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <img src="../img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
+            <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
+                © 2025 Еко Приключения - Заедно за по-чиста Земя!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

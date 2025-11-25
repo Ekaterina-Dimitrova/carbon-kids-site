@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Активности | Еко Приключения</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+            <span class="flag">🇬🇧</span>
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="earth-icon">🌍</span>
+                <h1 data-bg="Еко Приключения" data-en="Eco Adventures">Еко Приключения</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="learn.html" data-bg="Научи" data-en="Learn">Научи</a></li>
+                    <li><a href="games.html" data-bg="Игри" data-en="Games">Игри</a></li>
+                    <li><a href="quiz.html" data-bg="Тест" data-en="Quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Activities Section -->
+    <section class="learn-section">
+        <div class="container">
+            <h2 class="section-title" data-bg="Забавни активности! 🎉" data-en="Fun Activities! 🎉">
+                Забавни активности! 🎉
+            </h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-icon">🌱</div>
+                    <h3 data-bg="Засади семена" data-en="Plant Seeds">Засади семена</h3>
+                    <p data-bg="Вкъщи или в училище, опитай да засадиш семена и наблюдавай как растат растенията. Това е страхотен начин да разбереш природата!" 
+                       data-en="At home or at school, try planting seeds and watch plants grow. This is a great way to understand nature!">Вкъщи или в училище, опитай да засадиш семена и наблюдавай как растат растенията. Това е страхотен начин да разбереш природата!</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-icon">♻️</div>
+                    <h3 data-bg="Направи поделка от отпадъци" data-en="Make Crafts from Waste">Направи поделка от отпадъци</h3>
+                    <p data-bg="Събери старите си вещи и създавай нещо ново! Пластмасови бутилки, картон и парчета кърпа могат да станат красиви играчки и украшения." 
+                       data-en="Collect old items and create something new! Plastic bottles, cardboard and fabric scraps can become beautiful toys and decorations.">Събери старите си вещи и създавай нещо ново! Пластмасови бутилки, картон и парчета кърпа могат да станат красиви играчки и украшения.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-icon">🚴</div>
+                    <h3 data-bg="Езди с велосипед" data-en="Ride a Bike">Езди с велосипед</h3>
+                    <p data-bg="Велосипедът е еко-приятелски начин да се придвижиш! Упражнявай се и наслади се на природата едновременно." 
+                       data-en="Biking is an eco-friendly way to travel! Exercise and enjoy nature at the same time.">Велосипедът е еко-приятелски начин да се придвижиш! Упражнявай се и наслади се на природата едновременно.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-icon">💧</div>
+                    <h3 data-bg="Направи колектор на вода" data-en="Make a Water Collector">Направи колектор на вода</h3>
+                    <p data-bg="Събери дъждовна вода и я позлвай за поливане на растенията. Това е чудесен начин да пестиш вода!" 
+                       data-en="Collect rainwater and use it to water plants. This is a wonderful way to save water!">Събери дъждовна вода и я позлвай за поливане на растенията. Това е чудесен начин да пестиш вода!</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-icon">📚</div>
+                    <h3 data-bg="Изследвай природата" data-en="Explore Nature">Изследвай природата</h3>
+                    <p data-bg="Отиди в паркa или гората и изследвай различните растения и животни. Направи снимки и учи повече за екосистемата." 
+                       data-en="Go to the park or forest and explore different plants and animals. Take photos and learn more about ecosystems.">Отиди в паркa или гората и изследвай различните растения и животни. Направи снимки и учи повече за екосистемата.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-icon">🎨</div>
+                    <h3 data-bg="Направи еколoгичен плакат" data-en="Create an Eco Poster">Направи еколoгичен плакат</h3>
+                    <p data-bg="Направи плакат, който да учи други за защитата на околната среда. Раздели го със своите приятели!" 
+                       data-en="Make a poster that teaches others about environmental protection. Share it with your friends!">Направи плакат, който да учи други за защитата на околната среда. Раздели го със своите приятели!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <img src="../img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
+            <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
+                © 2025 Еко Приключения - Заедно за по-чиста Земя!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

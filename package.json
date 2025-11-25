@@ -1,0 +1,22 @@
+{
+  "name": "carbon-kids-site",
+  "version": "1.0.0",
+  "description": "A fun and educational website for children to learn about carbon footprints and how to reduce them.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'Test step not defined'"
+  },
+  "keywords": [
+    "carbon footprint",
+    "education",
+    "children",
+    "environment"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
