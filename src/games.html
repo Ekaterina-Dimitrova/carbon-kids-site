@@ -1,1 +1,319 @@
-...
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игри | Еко Приключения</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+            <span class="flag">🇬🇧</span>
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="earth-icon">🌍</span>
+                <h1 data-bg="Еко Приключения" data-en="Eco Adventures">Еко Приключения</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="learn.html" data-bg="Научи" data-en="Learn">Научи</a></li>
+                    <li><a href="games.html" class="active" data-bg="Игри" data-en="Games">Игри</a></li>
+                    <li><a href="quiz.html" data-bg="Тест" data-en="Quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Games Selection -->
+    <section id="games-menu" class="quick-links-section">
+        <div class="container">
+            <div class="hero-content" style="display: flex; align-items: center; gap: 2rem;">
+                <div class="hero-image" style="flex-shrink: 0;">
+                    <img src="../img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
+                </div>
+                <h2 class="section-title" data-bg="Избери игра! 🎮" data-en="Choose a Game! 🎮">
+                    Избери игра! 🎮
+                </h2>
+            </div>
+            <div class="quick-links-grid">
+                <div class="quick-link-card" onclick="showGame('catch')">
+                    <div class="link-icon">🎯</div>
+                    <h3 data-bg="Хвани Еко Символите!" data-en="Catch Eco Symbols!">Хвани Еко Символите!</h3>
+                    <p data-bg="Използвай мишката, за да хванеш падащите символи" data-en="Use the mouse to catch falling symbols">
+                        Използвай мишката, за да хванеш падащите символи
+                    </p>
+                </div>
+                            <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                <div class="quick-link-card" onclick="showGame('memory')">
+                    <div class="link-icon">🧠</div>
+                    <h3 data-bg="Мемори игра" data-en="Memory Game">Мемори игра</h3>
+                    <p data-bg="Намери двойките еко символи" data-en="Find matching eco symbol pairs">
+                        Намери двойките еко символи
+                    </p>
+                </div>
+                
+                <div class="quick-link-card" onclick="showGame('recycling')">
+                    <div class="link-icon">♻️</div>
+                    <h3 data-bg="Разделно събиране" data-en="Recycling Sorting">Разделно събиране</h3>
+                    <p data-bg="Сортирай отпадъците в правилните контейнери" data-en="Sort waste into the correct bins">
+                        Сортирай отпадъците в правилните контейнери
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catch Game -->
+    <section id="catch-game-section" class="game-section" style="display: none;">
+        <div class="container">
+            <button class="back-btn" onclick="backToMenu()">
+                <span data-bg="← Обратно към игрите" data-en="← Back to Games">← Обратно към игрите</span>
+            </button>
+            <div class="game-container">
+                <h3 data-bg="Хвани Еко Символите! 🎯" data-en="Catch the Eco Symbols! 🎯">
+                    Хвани Еко Символите! 🎯
+                </h3>
+                <p class="game-description" data-bg="Хващай зелените символи и избягвай замърсителите. Имаш 30 секунди!" 
+                   data-en="Catch the green symbols and avoid pollutants. You have 30 seconds!">
+                    Хващай зелените символи и избягвай замърсителите. Имаш 30 секунди!
+                </p>
+                <div class="game-score">
+                    <span data-bg="Точки:" data-en="Score:">Точки:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="game-board" id="gameBoard">
+                    <div class="game-start">
+                        <button class="game-button" onclick="startGame()" data-bg="Започни игра" data-en="Start Game">
+                            Започни игра
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Game -->
+    <section id="memory-game-section" class="game-section" style="display: none;">
+        <div class="container">
+            <button class="back-btn" onclick="backToMenu()">
+                <span data-bg="← Обратно към игрите" data-en="← Back to Games">← Обратно към игрите</span>
+            </button>
+            <div class="game-container">
+                <h3 data-bg="Мемори - Намери двойките! 🧠" data-en="Memory - Find the Pairs! 🧠">
+                    Мемори - Намери двойките! 🧠
+                </h3>
+                <p class="game-description" data-bg="Намери двойките карти, които показват еко действия! Колко ходове ще ти трябват?" 
+                   data-en="Find matching card pairs that show eco actions! How many moves will it take?">
+                    Намери двойките карти, които показват еко действия! Колко ходове ще ти трябват?
+                </p>
+                <div class="memory-stats">
+                    <div class="stat">
+                        <span data-bg="Ходове:" data-en="Moves:">Ходове:</span>
+                        <span id="moves">0</span>
+                    </div>
+                    <div class="stat">
+                        <span data-bg="Намерени:" data-en="Found:">Намерени:</span>
+                        <span id="pairs">0/6</span>
+                    </div>
+                </div>
+                <div class="memory-game" id="memoryGame"></div>
+                <button class="game-button" onclick="initMemoryGame()" data-bg="Нова игра" data-en="New Game">
+                    Нова игра
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recycling Game -->
+    <section id="recycling-game-section" class="game-section" style="display: none;">
+        <div class="container">
+            <button class="back-btn" onclick="backToMenu()">
+                <span data-bg="← Обратно към игрите" data-en="← Back to Games">← Обратно към игрите</span>
+            </button>
+            <div class="game-container">
+                <h3 data-bg="Игра за разделно събиране на отпадъци ♻️" data-en="Recycling Sorting Game ♻️">
+                    Игра за разделно събиране на отпадъци ♻️
+                </h3>
+                <p class="game-description" data-bg="Научи се как да сортираш различните видове отпадъци в правилните контейнери за рециклиране!" 
+                   data-en="Learn how to sort different types of waste into the correct recycling bins!">
+                    Научи се как да сортираш различните видове отпадъци в правилните контейнери за рециклиране!
+                </p>
+                <div class="recycling-game">
+                    <div class="recycling-instructions">
+                        <h4 data-bg="Как да играеш:" data-en="How to play:">Как да играеш:</h4>
+                        <ol>
+                            <li data-bg="Избери отпадък, като кликнеш върху него" data-en="Select a waste item by clicking on it">
+                                Избери отпадък, като кликнеш върху него
+                            </li>
+                            <li data-bg="След това кликни върху контейнера, в който смяташ, че трябва да се изхвърли" 
+                                data-en="Then click on the bin where you think it should go">
+                                След това кликни върху контейнера, в който смяташ, че трябва да се изхвърли
+                            </li>
+                            <li data-bg="Можеш също да плъзнеш отпадъка към правилния контейнер" data-en="You can also drag the waste to the correct bin">
+                                Можеш също да плъзнеш отпадъка към правилния контейнер
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="recycling-stats">
+                        <div class="stat">
+                            <span data-bg="Правилни:" data-en="Correct:">Правилни:</span>
+                            <span id="correctSort">0</span>
+                        </div>
+                        <div class="stat">
+                            <span data-bg="Грешни:" data-en="Wrong:">Грешни:</span>
+                            <span id="wrongSort">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Waste Items -->
+                    <div class="waste-items" id="wasteItems">
+                        <h4 data-bg="Отпадъци за сортиране:" data-en="Waste to sort:">Отпадъци за сортиране:</h4>
+                        <div class="items-grid" id="itemsGrid"></div>
+                    </div>
+                    
+                    <!-- Recycling Bins -->
+                    <div class="recycling-bins">
+                        <div class="bin blue-bin" data-type="plastic" onclick="selectBin('plastic')">
+                            <div class="bin-icon">♻️</div>
+                            <div class="bin-color-indicator blue"></div>
+                            <div class="bin-label" data-bg="Пластмаса" data-en="Plastic">Пластмаса</div>
+                            <div class="bin-description" data-bg="За пластмасови бутилки, опаковки, торбички и контейнери." 
+                                 data-en="For plastic bottles, packages, bags and containers.">
+                                За пластмасови бутилки, опаковки, торбички и контейнери.
+                            </div>
+                            <div class="bin-examples">
+                                <span class="example-item">🥤</span>
+                                <span class="example-item">🛍️</span>
+                                <span class="example-item">🧴</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bin yellow-bin" data-type="paper" onclick="selectBin('paper')">
+                            <div class="bin-icon">♻️</div>
+                            <div class="bin-color-indicator yellow"></div>
+                            <div class="bin-label" data-bg="Хартия" data-en="Paper">Хартия</div>
+                            <div class="bin-description" data-bg="За хартия, картон, вестници, списания, книги и картонени опаковки." 
+                                 data-en="For paper, cardboard, newspapers, magazines, books and cardboard packages.">
+                                За хартия, картон, вестници, списания, книги и картонени опаковки.
+                            </div>
+                            <div class="bin-examples">
+                                <span class="example-item">📰</span>
+                                <span class="example-item">📦</span>
+                                <span class="example-item">📄</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bin green-bin" data-type="glass" onclick="selectBin('glass')">
+                            <div class="bin-icon">♻️</div>
+                            <div class="bin-color-indicator green"></div>
+                            <div class="bin-label" data-bg="Стъкло" data-en="Glass">Стъкло</div>
+                            <div class="bin-description" data-bg="За стъклени бутилки, буркани и други стъклени опаковки." 
+                                 data-en="For glass bottles, jars and other glass containers.">
+                                За стъклени бутилки, буркани и други стъклени опаковки.
+                            </div>
+                            <div class="bin-examples">
+                                <span class="example-item">🍾</span>
+                                <span class="example-item">🏺</span>
+                                <span class="example-item">🍷</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bin brown-bin bin-bottom-row" data-type="organic" onclick="selectBin('organic')">
+                            <div class="bin-icon">♻️</div>
+                            <div class="bin-color-indicator brown"></div>
+                            <div class="bin-label" data-bg="Био" data-en="Organic">Био</div>
+                            <div class="bin-description" data-bg="За хранителни отпадъци, обелки от плодове и зеленчуци, листа и клони." 
+                                 data-en="For food waste, fruit and vegetable peels, leaves and branches.">
+                                За хранителни отпадъци, обелки от плодове и зеленчуци, листа и клони.
+                            </div>
+                            <div class="bin-examples">
+                                <span class="example-item">🍎</span>
+                                <span class="example-item">🥕</span>
+                                <span class="example-item">🍌</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mascot-container">
+                            <div class="eco-mascot">
+                                <div class="mascot-character">🌍</div>
+                                <div class="mascot-message" data-bg="Браво! Сортирай правилно!" data-en="Great! Sort correctly!">
+                                    Браво! Сортирай правилно!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bin gray-bin bin-bottom-row" data-type="general" onclick="selectBin('general')">
+                            <div class="bin-icon">♻️</div>
+                            <div class="bin-color-indicator gray"></div>
+                            <div class="bin-label" data-bg="Метал" data-en="Metal">Метал</div>
+                            <div class="bin-description" data-bg="За метални кутии, капачки, конзерви и алуминиеви фолия." 
+                                 data-en="For metal cans, caps, tins and aluminum foil.">
+                                За метални кутии, капачки, конзерви и алуминиеви фолия.
+                            </div>
+                            <div class="bin-examples">
+                                <span class="example-item">🥫</span>
+                                <span class="example-item">🔋</span>
+                                <span class="example-item">🔧</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="game-button" onclick="resetRecyclingGame()" data-bg="Нова игра" data-en="New Game">
+                    Нова игра
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <img src="../img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
+            
+            <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
+                © 2025 Еко Приключения - Заедно за по-чиста Земя!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/games.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        function showGame(gameType) {
+            document.getElementById('games-menu').style.display = 'none';
+            document.getElementById(gameType + '-game-section').style.display = 'block';
+            
+            // Initialize the game
+            if (gameType === 'memory') {
+                initMemoryGame();
+            } else if (gameType === 'recycling') {
+                initRecyclingGame();
+            }
+        }
+        
+        function backToMenu() {
+            document.querySelectorAll('.game-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('games-menu').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
