@@ -1,1 +1,70 @@
-...
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Начало | Еко Приключения</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+            <span class="flag">🇬🇧</span>
+            <span id="langText">EN</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="earth-icon">🌍</span>
+                <h1 data-bg="Еко Приключения" data-en="Eco Adventures">Еко Приключения</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="learn.html" data-bg="Научи" data-en="Learn">Научи</a></li>
+                    <li><a href="games.html" data-bg="Игри" data-en="Games">Игри</a></li>
+                    <li><a href="quiz.html" data-bg="Тест" data-en="Quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h2 class="section-title" data-bg="Добре дошли в Еко Приключения!" data-en="Welcome to Eco Adventures!">
+                Добре дошли в Еко Приключения!
+            </h2>
+            <p data-bg="Научете повече за въглеродния отпечатък и как да помогнем на планетата по забавен начин!" 
+               data-en="Learn more about carbon footprint and how to help the planet in a fun way!">
+                Научете повече за въглеродния отпечатък и как да помогнем на планетата по забавен начин!
+            </p>
+            <a href="learn.html" class="main-btn" data-bg="Започни да учиш" data-en="Start Learning">Започни да учиш</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p data-bg="Направено с ❤ за нашата планета" data-en="Made with ❤ for our planet">
+                Направено с ❤ за нашата планета
+            </p>
+            <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
+                © 2025 Еко Приключения - Заедно за по-чиста Земя!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
