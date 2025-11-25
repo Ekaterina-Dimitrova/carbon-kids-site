@@ -29,7 +29,7 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html" data-bg="Начало" data-en="Home">Начало</a></li>
+                    <li><a href="home.html" class="active" data-bg="Начало" data-en="Home">Начало</a></li>
                     <li><a href="learn.html" data-bg="Научи" data-en="Learn">Научи</a></li>
                     <li><a href="games.html" data-bg="Игри" data-en="Games">Игри</a></li>
                     <li><a href="quiz.html" data-bg="Тест" data-en="Quiz">Тест</a></li>
@@ -39,32 +39,113 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="/img/Vladi_1.png" alt="Vladi Eco Mascot" class="mascot-image">
+            </div>
+            <div class="hero-text">
+                <h2 class="hero-title" data-bg="Здравей, млади екогерой! 👣" data-en="Hello, Young Eco Hero! 👣">
+                    Здравей, млади екогерой! 👣
+                </h2>
+                <p class="hero-subtitle" data-bg="Научи как да пазиш планетата и да намалиш въглеродния си отпечатък!" 
+                   data-en="Learn how to protect the planet and reduce your carbon footprint!">
+                    Научи как да пазиш планетата и да намалиш въглеродния си отпечатък!
+                </p>
+                <a href="learn.html" class="cta-button" style="text-decoration: none;" data-bg="Започни приключението!" data-en="Start the Adventure!">
+                    Започни приключението! 🚀
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-animation">
+            <div class="floating-icon">🌱</div>
+            <div class="floating-icon">♻️</div>
+            <div class="floating-icon">💚</div>
+            <div class="floating-icon">🌳</div>
+        </div>
+        
+        <!-- Scratch Game Section -->
+        <div class="video-section">
+            <div class="game-intro">
+                <img src="/img/Vladi_h.png" alt="Приключенията на Влади" class="game-title-image">
+                <p class="game-intro-text" data-bg="Играй и научи повече за въглеродния отпечатък с тази забавна игра, създадена в Scratch!" 
+                   data-en="Play and learn more about carbon footprint with this fun game created in Scratch!">
+                    Играй и научи повече за въглеродния отпечатък с тази забавна игра, създадена в Scratch!
+                </p>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://scratch.mit.edu/projects/1135995608/embed" 
+                    allowtransparency="true" 
+                    width="485" 
+                    height="402" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="game-description">
+                <p>
+                    <strong data-bg="За играта:" data-en="About the game:">За играта:</strong><br>
+                    <span data-bg="В 'Приключенията на Влади' ще помогнеш на героя да направи правилните избори за околната среда. Всяко твое решение влияе на въглеродния отпечатък и може да помогне или навреди на планетата." 
+                          data-en="In 'Vladi's Adventures' you will help the hero make the right choices for the environment. Every decision you make affects the carbon footprint and can help or harm the planet.">
+                        В "Приключенията на Влади" ще помогнеш на героя да направи правилните избори за околната среда. Всяко твое решение влияе на въглеродния отпечатък и може да помогне или навреди на планетата.
+                    </span>
+                </p>
+                <p data-bg="Използвай клавишите със стрелки, за да движиш героя и следвай инструкциите в играта." 
+                   data-en="Use the arrow keys to move the hero and follow the instructions in the game.">
+                    Използвай клавишите със стрелки, за да движиш героя и следвай инструкциите в играта.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links-section">
         <div class="container">
-            <h2 class="section-title" data-bg="Добре дошли в Еко Приключения!" data-en="Welcome to Eco Adventures!">
-                Добре дошли в Еко Приключения!
+            <h2 class="section-title" data-bg="Какво искаш да правиш днес? 🎯" data-en="What do you want to do today? 🎯">
+                Какво искаш да правиш днес? 🎯
             </h2>
-            <p data-bg="Научете повече за въглеродния отпечатък и как да помогнем на планетата по забавен начин!" 
-               data-en="Learn more about carbon footprint and how to help the planet in a fun way!">
-                Научете повече за въглеродния отпечатък и как да помогнем на планетата по забавен начин!
-            </p>
-            <a href="learn.html" class="main-btn" data-bg="Започни да учиш" data-en="Start Learning">Започни да учиш</a>
+            <div class="quick-links-grid">
+                <a href="learn.html" class="quick-link-card">
+                    <div class="link-icon">📚</div>
+                    <h3 data-bg="Научи" data-en="Learn">Научи</h3>
+                    <p data-bg="Разбери какво е въглероден отпечатък" data-en="Understand what carbon footprint is">
+                        Разбери какво е въглероден отпечатък
+                    </p>
+                </a>
+                
+                <a href="games.html" class="quick-link-card">
+                    <div class="link-icon">🎮</div>
+                    <h3 data-bg="Играй" data-en="Play">Играй</h3>
+                    <p data-bg="Забавни игри за екологията" data-en="Fun games about ecology">
+                        Забавни игри за екологията
+                    </p>
+                </a>
+                
+                <a href="quiz.html" class="quick-link-card">
+                    <div class="link-icon">🏆</div>
+                    <h3 data-bg="Тествай се" data-en="Quiz">Тествай се</h3>
+                    <p data-bg="Провери знанията си" data-en="Test your knowledge">
+                        Провери знанията си
+                    </p>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
-            <p data-bg="Направено с ❤ за нашата планета" data-en="Made with ❤ for our planet">
-                Направено с ❤ за нашата планета
-            </p>
+            <img src="/img/npmg-logo-768x790.png" alt="НПМГ Logo" class="footer-logo">
             <p data-bg="© 2025 Еко Приключения - Заедно за по-чиста Земя!" data-en="© 2025 Eco Adventures - Together for a Cleaner Earth!">
                 © 2025 Еко Приключения - Заедно за по-чиста Земя!
             </p>
         </div>
     </footer>
 
-    <script src="../js/utils.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
