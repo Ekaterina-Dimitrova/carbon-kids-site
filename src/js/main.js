@@ -1003,25 +1003,30 @@ function updateInteractiveCalculator() {
     const hasRangeSliders = question.sliders.some(slider => slider.min !== undefined);
     
     if (hasRangeSliders) {
-        // For the trip calculator (Level 3, Question 2)
-        if (question.question && question.question.includes('family trip')) {
+        // For sliders with range (trip calculator, planning day, etc)
+        // Check if this is a trip/travel calculation based on structure
+        const hasTransportSlider = question.sliders.some(slider => slider.name && (slider.name.includes('Разстояние') || slider.name.includes('Distance') || slider.name.includes('транспорт') || slider.name.includes('transport')));
+        
+        if (hasTransportSlider && question.sliders.length >= 4) {
+            // Trip/Travel calculation with transport consideration
             let distance = 0;
             let transportType = 4; // default car
             let days = 0;
             let numPeople = 1;
             
-            // Get slider values
+            // Get slider values - use more flexible matching for Bulgarian/English
             question.sliders.forEach((slider, idx) => {
                 const sliderElement = document.getElementById(`slider_${idx}`);
                 if (sliderElement) {
                     const value = parseFloat(sliderElement.value);
-                    if (slider.name.includes('Distance')) {
+                    const name = slider.name.toLowerCase();
+                    if (name.includes('разстояние') || name.includes('distance') || name.includes('км')) {
                         distance = value;
-                    } else if (slider.name.includes('people')) {
+                    } else if (name.includes('брой хора') || name.includes('people') || name.includes('human')) {
                         numPeople = value;
-                    } else if (slider.name.includes('days')) {
+                    } else if (name.includes('брой дни') || name.includes('days') || name.includes('ден')) {
                         days = value;
-                    } else if (slider.name.includes('transport')) {
+                    } else if (name.includes('транспорт') || name.includes('transport') || name.includes('вид')) {
                         transportType = value;
                     }
                 }
@@ -1047,13 +1052,14 @@ function updateInteractiveCalculator() {
                 
                 if (sliderElement && impactDisplay) {
                     const value = parseFloat(sliderElement.value);
+                    const name = slider.name.toLowerCase();
                     
-                    if (slider.name.includes('Distance')) {
+                    if (name.includes('разстояние') || name.includes('distance') || name.includes('км')) {
                         const co2 = value * emissionsPerKm[transportType - 1];
                         impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Общ' : 'Transport'} ${currentLanguage === 'bg' ? 'транспортен отпечатък:' : 'emissions:'} <span style="font-weight: 700;">${co2.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
-                    } else if (slider.name.includes('people')) {
+                    } else if (name.includes('брой хора') || name.includes('people') || name.includes('human')) {
                         impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'На човек:' : 'Per person:'} <span style="font-weight: 700;">${co2PerPerson.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
-                    } else if (slider.name.includes('days')) {
+                    } else if (name.includes('брой дни') || name.includes('days') || name.includes('ден')) {
                         const co2 = value * 6;
                         impactDisplay.innerHTML = `${currentLanguage === 'bg' ? 'Престой (хотел + храна):' : 'Stay (hotel + food):'} <span style="font-weight: 700;">${co2.toFixed(1)} ${currentLanguage === 'bg' ? 'кг' : 'kg'} CO₂</span>`;
                     }
@@ -1118,14 +1124,46 @@ function checkInteractiveAnswer() {
     const hasRangeSliders = question.sliders.some(slider => slider.min !== undefined);
     
     if (hasRangeSliders) {
-        question.sliders.forEach((slider, idx) => {
-            const sliderElement = document.getElementById(`slider_${idx}`);
-            if (sliderElement && slider.formula) {
-                const value = parseFloat(sliderElement.value);
-                totalFootprint += slider.formula(value);
-            }
-        });
+        // Check if this is a trip/travel calculation
+        const hasTransportSlider = question.sliders.some(slider => slider.name && (slider.name.includes('Разстояние') || slider.name.includes('Distance') || slider.name.includes('транспорт') || slider.name.includes('transport')));
+        
+        if (hasTransportSlider && question.sliders.length >= 4) {
+            // Trip/Travel calculation with transport
+            let distance = 0;
+            let transportType = 4;
+            let days = 0;
+            
+            question.sliders.forEach((slider, idx) => {
+                const sliderElement = document.getElementById(`slider_${idx}`);
+                if (sliderElement) {
+                    const value = parseFloat(sliderElement.value);
+                    const name = slider.name.toLowerCase();
+                    if (name.includes('разстояние') || name.includes('distance') || name.includes('км')) {
+                        distance = value;
+                    } else if (name.includes('брой дни') || name.includes('days') || name.includes('ден')) {
+                        days = value;
+                    } else if (name.includes('транспорт') || name.includes('transport') || name.includes('вид')) {
+                        transportType = value;
+                    }
+                }
+            });
+            
+            const emissionsPerKm = [0, 0.04, 0.10, 0.25, 0.30];
+            const transportCO2 = distance * emissionsPerKm[transportType - 1];
+            const stayCO2 = days * 6;
+            totalFootprint = transportCO2 + stayCO2;
+        } else {
+            // Other sliders with formulas
+            question.sliders.forEach((slider, idx) => {
+                const sliderElement = document.getElementById(`slider_${idx}`);
+                if (sliderElement && slider.formula) {
+                    const value = parseFloat(sliderElement.value);
+                    totalFootprint += slider.formula(value);
+                }
+            });
+        }
     } else {
+        // Checkboxes mode
         question.sliders.forEach((slider, idx) => {
             const checkbox = document.getElementById(`checkbox_${idx}`);
             if (checkbox && checkbox.checked) {
